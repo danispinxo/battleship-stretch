@@ -1,0 +1,18 @@
+header h1 {
+  margin: 2rem;
+  font-family: 'DynaPuff', cursive;
+  color: #a426b5;
+}
+
+h2 {
+  font-family: 'DynaPuff', cursive;
+  color: #4d1155
+}
+
+.placement-input {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  padding: 2rem;
+  font-family: 'Jost', sans-serif;
+}

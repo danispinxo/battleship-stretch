@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Meta Information -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dani's Battleship Stretch</title>
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    type="text/css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;700&family=Jost&display=swap" rel="stylesheet">
+
+  <!-- App CSS -->
+  <link rel="stylesheet" href="./styles/boards.css" type="text/css" />
+  <link rel="stylesheet" href="./styles/layout.css" type="text/css" />
+
+
+  <!-- External JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"
+    integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!-- App JS -->
+  <script type="text/javascript" src="./scripts/client.js"></script>
+  <script type="text/javascript" src="./scripts/helperFunctions.js"></script>
+</head>
+
+<body>
+  <header>
+    <h1>Welcome to ZiDani's Battleship!</h1>
+  </header>
+  <section class="placement-input" id="placement-input">
+    <h2>Place Your Ships</h2>
+    <form method="POST" action="/place/" id="placement-form">
+      <label for="carrier-location">Carrier: </label>
+      <input name="carrier-location" id="carrier-location" value="(five squares)"></input><br>
+      <label for="battleship-location">Battleship: </label>
+      <input name="battleship-location" id="battleship-location" value="(four squares)"></input><br>
+      <label for="cruiser-location">Cruiser: </label>
+      <input name="cruiser-location" id="cruiser-location" value="(three squares)"></input><br>
+      <label for="submarine-location">Submarine: </label>
+      <input name="submarine-location" id="submarine-location" value="(three squares)"></input><br>
+      <label for="destroyer-location">Destroyer: </label>
+      <input name="destroyer-location" id="destroyer-location" value="(two squares)"></input><br>
+      <button type="submit" id="tweet-btn">Finalize Placement</button>
+    </form>
+  </section>
+  <main>
+    <div class="player-board" id="player-board">
+      <h2>Player Board</h2>
+      <div class="player-row" id="A">
+        <div class="player-square" id="A1"></div>
+        <div class="player-square" id="A2"></div>
+        <div class="player-square" id="A3"></div>
+        <div class="player-square" id="A4"></div>
+        <div class="player-square" id="A5"></div>
+        <div class="player-square" id="A6"></div>
+        <div class="player-square" id="A7"></div>
+        <div class="player-square" id="A8"></div>
+        <div class="player-square" id="A9"></div>
+        <div class="player-square" id="A10"></div>
+      </div>
+      <div class="player-row" id="B">
+        <div class="player-square" id="B1"></div>
+        <div class="player-square" id="B2"></div>
+        <div class="player-square" id="B3"></div>
+        <div class="player-square" id="B4"></div>
+        <div class="player-square" id="B5"></div>
+        <div class="player-square" id="B6"></div>
+        <div class="player-square" id="B7"></div>
+        <div class="player-square" id="B8"></div>
+        <div class="player-square" id="B9"></div>
+        <div class="player-square" id="B10"></div>
+      </div>
+      <div class="player-row" id="C">
+        <div class="player-square" id="C1"></div>
+        <div class="player-square" id="C2"></div>
+        <div class="player-square" id="C3"></div>
+        <div class="player-square" id="C4"></div>
+        <div class="player-square" id="C5"></div>
+        <div class="player-square" id="C6"></div>
+        <div class="player-square" id="C7"></div>
+        <div class="player-square" id="C8"></div>
+        <div class="player-square" id="C9"></div>
+        <div class="player-square" id="C10"></div>
+      </div>
+      <div class="player-row" id="D">
+        <div class="player-square" id="D1"></div>
+        <div class="player-square" id="D2"></div>
+        <div class="player-square" id="D3"></div>
+        <div class="player-square" id="D4"></div>
+        <div class="player-square" id="D5"></div>
+        <div class="player-square" id="D6"></div>
+        <div class="player-square" id="D7"></div>
+        <div class="player-square" id="D8"></div>
+        <div class="player-square" id="D9"></div>
+        <div class="player-square" id="D10"></div>
+      </div>
+      <div class="player-row" id="E">
+        <div class="player-square" id="E1"></div>
+        <div class="player-square" id="E2"></div>
+        <div class="player-square" id="E3"></div>
+        <div class="player-square" id="E4"></div>
+        <div class="player-square" id="E5"></div>
+        <div class="player-square" id="E6"></div>
+        <div class="player-square" id="E7"></div>
+        <div class="player-square" id="E8"></div>
+        <div class="player-square" id="E9"></div>
+        <div class="player-square" id="E10"></div>
+      </div>
+      <div class="player-row" id="F">
+        <div class="player-square" id="F1"></div>
+        <div class="player-square" id="F2"></div>
+        <div class="player-square" id="F3"></div>
+        <div class="player-square" id="F4"></div>
+        <div class="player-square" id="F5"></div>
+        <div class="player-square" id="F6"></div>
+        <div class="player-square" id="F7"></div>
+        <div class="player-square" id="F8"></div>
+        <div class="player-square" id="F9"></div>
+        <div class="player-square" id="F10"></div>
+      </div>
+      <div class="player-row" id="G">
+        <div class="player-square" id="G1"></div>
+        <div class="player-square" id="G2"></div>
+        <div class="player-square" id="G3"></div>
+        <div class="player-square" id="G4"></div>
+        <div class="player-square" id="G5"></div>
+        <div class="player-square" id="G6"></div>
+        <div class="player-square" id="G7"></div>
+        <div class="player-square" id="G8"></div>
+        <div class="player-square" id="G9"></div>
+        <div class="player-square" id="G10"></div>
+      </div>
+      <div class="player-row" id="H">
+        <div class="player-square" id="H1"></div>
+        <div class="player-square" id="H2"></div>
+        <div class="player-square" id="H3"></div>
+        <div class="player-square" id="H4"></div>
+        <div class="player-square" id="H5"></div>
+        <div class="player-square" id="H6"></div>
+        <div class="player-square" id="H7"></div>
+        <div class="player-square" id="H8"></div>
+        <div class="player-square" id="H9"></div>
+        <div class="player-square" id="H10"></div>
+      </div>
+      <div class="player-row" id="I">
+        <div class="player-square" id="I1"></div>
+        <div class="player-square" id="I2"></div>
+        <div class="player-square" id="I3"></div>
+        <div class="player-square" id="I4"></div>
+        <div class="player-square" id="I5"></div>
+        <div class="player-square" id="I6"></div>
+        <div class="player-square" id="I7"></div>
+        <div class="player-square" id="I8"></div>
+        <div class="player-square" id="I9"></div>
+        <div class="player-square" id="I10"></div>
+      </div>
+      <div class="player-row" id="J">
+        <div class="player-square" id="J1"></div>
+        <div class="player-square" id="J2"></div>
+        <div class="player-square" id="J3"></div>
+        <div class="player-square" id="J4"></div>
+        <div class="player-square" id="J5"></div>
+        <div class="player-square" id="J6"></div>
+        <div class="player-square" id="J7"></div>
+        <div class="player-square" id="J8"></div>
+        <div class="player-square" id="J9"></div>
+        <div class="player-square" id="J10"></div>
+      </div>
+    </div>
+
+    <div class="player-board" id="player-board">
+      <h2>Opponent Board</h2>
+      <div class="opponent-row" id="A">
+        <div class="opponent-square" id="A1"></div>
+        <div class="opponent-square" id="A2"></div>
+        <div class="opponent-square" id="A3"></div>
+        <div class="opponent-square" id="A4"></div>
+        <div class="opponent-square" id="A5"></div>
+        <div class="opponent-square" id="A6"></div>
+        <div class="opponent-square" id="A7"></div>
+        <div class="opponent-square" id="A8"></div>
+        <div class="opponent-square" id="A9"></div>
+        <div class="opponent-square" id="A10"></div>
+      </div>
+      <div class="opponent-row" id="B">
+        <div class="opponent-square" id="B1"></div>
+        <div class="opponent-square" id="B2"></div>
+        <div class="opponent-square" id="B3"></div>
+        <div class="opponent-square" id="B4"></div>
+        <div class="opponent-square" id="B5"></div>
+        <div class="opponent-square" id="B6"></div>
+        <div class="opponent-square" id="B7"></div>
+        <div class="opponent-square" id="B8"></div>
+        <div class="opponent-square" id="B9"></div>
+        <div class="opponent-square" id="B10"></div>
+      </div>
+      <div class="opponent-row" id="C">
+        <div class="opponent-square" id="C1"></div>
+        <div class="opponent-square" id="C2"></div>
+        <div class="opponent-square" id="C3"></div>
+        <div class="opponent-square" id="C4"></div>
+        <div class="opponent-square" id="C5"></div>
+        <div class="opponent-square" id="C6"></div>
+        <div class="opponent-square" id="C7"></div>
+        <div class="opponent-square" id="C8"></div>
+        <div class="opponent-square" id="C9"></div>
+        <div class="opponent-square" id="C10"></div>
+      </div>
+      <div class="opponent-row" id="D">
+        <div class="opponent-square" id="D1"></div>
+        <div class="opponent-square" id="D2"></div>
+        <div class="opponent-square" id="D3"></div>
+        <div class="opponent-square" id="D4"></div>
+        <div class="opponent-square" id="D5"></div>
+        <div class="opponent-square" id="D6"></div>
+        <div class="opponent-square" id="D7"></div>
+        <div class="opponent-square" id="D8"></div>
+        <div class="opponent-square" id="D9"></div>
+        <div class="opponent-square" id="D10"></div>
+      </div>
+      <div class="opponent-row" id="E">
+        <div class="opponent-square" id="E1"></div>
+        <div class="opponent-square" id="E2"></div>
+        <div class="opponent-square" id="E3"></div>
+        <div class="opponent-square" id="E4"></div>
+        <div class="opponent-square" id="E5"></div>
+        <div class="opponent-square" id="E6"></div>
+        <div class="opponent-square" id="E7"></div>
+        <div class="opponent-square" id="E8"></div>
+        <div class="opponent-square" id="E9"></div>
+        <div class="opponent-square" id="E10"></div>
+      </div>
+      <div class="opponent-row" id="F">
+        <div class="opponent-square" id="F1"></div>
+        <div class="opponent-square" id="F2"></div>
+        <div class="opponent-square" id="F3"></div>
+        <div class="opponent-square" id="F4"></div>
+        <div class="opponent-square" id="F5"></div>
+        <div class="opponent-square" id="F6"></div>
+        <div class="opponent-square" id="F7"></div>
+        <div class="opponent-square" id="F8"></div>
+        <div class="opponent-square" id="F9"></div>
+        <div class="opponent-square" id="F10"></div>
+      </div>
+      <div class="opponent-row" id="G">
+        <div class="opponent-square" id="G1"></div>
+        <div class="opponent-square" id="G2"></div>
+        <div class="opponent-square" id="G3"></div>
+        <div class="opponent-square" id="G4"></div>
+        <div class="opponent-square" id="G5"></div>
+        <div class="opponent-square" id="G6"></div>
+        <div class="opponent-square" id="G7"></div>
+        <div class="opponent-square" id="G8"></div>
+        <div class="opponent-square" id="G9"></div>
+        <div class="opponent-square" id="G10"></div>
+      </div>
+      <div class="opponent-row" id="H">
+        <div class="opponent-square" id="H1"></div>
+        <div class="opponent-square" id="H2"></div>
+        <div class="opponent-square" id="H3"></div>
+        <div class="opponent-square" id="H4"></div>
+        <div class="opponent-square" id="H5"></div>
+        <div class="opponent-square" id="H6"></div>
+        <div class="opponent-square" id="H7"></div>
+        <div class="opponent-square" id="H8"></div>
+        <div class="opponent-square" id="H9"></div>
+        <div class="opponent-square" id="H10"></div>
+      </div>
+      <div class="opponent-row" id="I">
+        <div class="opponent-square" id="I1"></div>
+        <div class="opponent-square" id="I2"></div>
+        <div class="opponent-square" id="I3"></div>
+        <div class="opponent-square" id="I4"></div>
+        <div class="opponent-square" id="I5"></div>
+        <div class="opponent-square" id="I6"></div>
+        <div class="opponent-square" id="I7"></div>
+        <div class="opponent-square" id="I8"></div>
+        <div class="opponent-square" id="I9"></div>
+        <div class="opponent-square" id="I10"></div>
+      </div>
+      <div class="opponent-row" id="J">
+        <div class="opponent-square" id="J1"></div>
+        <div class="opponent-square" id="J2"></div>
+        <div class="opponent-square" id="J3"></div>
+        <div class="opponent-square" id="J4"></div>
+        <div class="opponent-square" id="J5"></div>
+        <div class="opponent-square" id="J6"></div>
+        <div class="opponent-square" id="J7"></div>
+        <div class="opponent-square" id="J8"></div>
+        <div class="opponent-square" id="J9"></div>
+        <div class="opponent-square" id="J10"></div>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>
