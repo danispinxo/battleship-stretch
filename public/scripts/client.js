@@ -2,7 +2,7 @@ $(document).ready(function() {
   $(function() {
     const $form = $("#placement-form");
     $form.submit(function(event) {
-      // prevents default post activity)
+      // prevents default post activity
       event.preventDefault();
       // serializing the input for post request
       const placement = $(this).serialize();
@@ -11,16 +11,14 @@ $(document).ready(function() {
         url: "/place/",
         data: placement,
         success: function(res) {
-          console.log(res);
-          renderTweets(res);
+          console.log(placement);
         },
         error: function(error) {
           console.error(error);
         },
       })
         .then(() => {
-          this.reset();
-          $("#placement-input").toggle();
+          console.log(placement);
         });
     });
   });

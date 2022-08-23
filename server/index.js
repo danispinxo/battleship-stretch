@@ -19,6 +19,8 @@ app.get("/", function(req, res) {
 app.post("/place/", function(req, res) {
   const placementObject = req.body;
 
-  carrierStart = placementObject['carrier-start'];
+  let carrierStart = placementObject['carrier-start'];
+
+  console.log(carrierStart);
 
 });
