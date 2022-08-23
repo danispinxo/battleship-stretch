@@ -22,12 +22,21 @@ main {
 }
 
 .player-square {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 3rem;
   height: 3rem;
   background-color: #f8d6f5;
+  color: #f692ee;
   border: 1px;
   border-style: solid;
   border-color:  #f692ee;
+}
+
+.player-occupied {
+  background-color: #493f48;
+  color: #ff8af5;
 }
 
 .opponent-board {
@@ -47,9 +56,13 @@ main {
 }
 
 .opponent-square {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 3rem;
   height: 3rem;
   background-color: #c6e3e6;
+  color: #4fc3c9;
   border: 1px;
   border-style: solid;
   border-color:  #4fc3c9;
