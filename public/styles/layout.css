@@ -17,6 +17,14 @@ h2 {
   font-family: 'Jost', sans-serif;
 }
 
+.attack-input {
+  display: none;
+  flex-direction: column;
+  width: 80%;
+  padding: 2rem;
+  font-family: 'Jost', sans-serif;
+}
+
 .emsg {
   display: none;
   margin: 1rem;

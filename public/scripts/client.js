@@ -10,7 +10,6 @@ const placeShips = (object) => {
   const rawDestroyerSquares = object['destroyer-squares'].toUpperCase().split(',');
   const destroyerSquares = rawDestroyerSquares.map(x => x.trim());
 
-  
   if (carrierSquares.length != 5 || battleshipSquares.length != 4 || cruiserSquares.length != 3 || submarineSquares.length != 3 || destroyerSquares.length != 2) {
     $("#incorrect-size-msg").slideDown("slow");
     return;
@@ -70,7 +69,7 @@ const placeShips = (object) => {
   $("#incorrect-size-msg").hide();
   $("#square-overlap-msg").hide();
   $('#placement-form').hide();
-
+  $('#attack-input').toggle();
 };
 
 $(document).ready(function() {
@@ -95,6 +94,33 @@ $(document).ready(function() {
         .then((response) => {
           const placementObject = response;
           placeShips(placementObject);
+        });
+    });
+  });
+});
+
+$(document).ready(function() {
+  $(function() {
+    const $form = $("#guess-form");
+    $form.submit(function(event) {
+      // prevents default post activity
+      event.preventDefault();
+      // serializing the input for post request
+      const guess = $(this).serialize();
+      $.ajax({
+        type: "POST",
+        url: "/guess/",
+        data: guess,
+        success: function(res) {
+          console.log(res);
+        },
+        error: function(error) {
+          console.error(error);
+        },
+      })
+        .then((response) => {
+          const guess = response;
+          console.log("Guess is: ", guess)
         });
     });
   });

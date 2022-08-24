@@ -18,7 +18,10 @@ app.get("/", function(req, res) {
 
 app.post("/place/", function(req, res) {
   const placementObject = req.body;
-
   res.send(placementObject);
+});
 
+app.post("/guess/", function(req, res) {
+  let guessObject = req.body;
+  res.send(guessObject);
 });
