@@ -138,6 +138,22 @@ const placeOpponentShips = () => {
 
 };
 
+const squareOccupationCheck = (square) => {
+  square = square.toUpperCase();
+  
+  const squareClasses = $(`#o${square}`).attr('class');
+
+  if (squareClasses === 'opponent-square opponent-occupied') {
+    $(`#o${square}`).addClass('hit-opponent');
+    $(`#o${square}`).text('X');
+    return "Hit!";
+  } else if (squareClasses === 'opponent-square') {
+    $(`#o${square}`).addClass('missed-opponent');
+    $(`#o${square}`).text('O');
+    return "Miss!";
+  }
+}
+
 $(document).ready(function() {
   $(function() {
     const $form = $("#placement-form");
@@ -185,8 +201,7 @@ $(document).ready(function() {
         },
       })
         .then((response) => {
-          const guess = response;
-          console.log("Guess is: ", guess)
+          console.log(squareOccupationCheck(response['attack-guess']));
         });
     });
   });

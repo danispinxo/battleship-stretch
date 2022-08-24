@@ -71,3 +71,13 @@ main {
 .opponent-occupied {
   color: #f7d672;
 }
+
+.hit-opponent {
+  background-color: #75093a;
+  color: #f6dae7;
+}
+
+.missed-opponent {
+  background-color: #090b75;
+  color: #cdcdf8;
+}
