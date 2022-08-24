@@ -81,3 +81,13 @@ main {
   background-color: #090b75;
   color: #cdcdf8;
 }
+
+.hit-player {
+  background-color: #e6056e;
+  color: #f2c5da;
+}
+
+.missed-player {
+  background-color: #e0aeee;
+  color: #9818bf;
+}
