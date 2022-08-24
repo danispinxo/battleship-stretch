@@ -35,26 +35,37 @@
     <h1>Welcome to ZiDani's Battleship!</h1>
   </header>
   <section class="placement-input" id="placement-input">
-    <h2>Place Your Ships</h2>
-    <p>Please enter the starting position square (eg. A1) that you would like for each ship. Then use the drop-down
-      menus to indicate direction of the ship.</p>
     <form method="POST" action="/place/" id="placement-form">
-      <label for="carrier-start">Carrier Start: </label>
-      <input name="carrier-start" id="carrier-start">
-      </input>
-      <select name="carrier-direction" id="carrier-direction">
-        <option>Vertical</option>
-        <option>Horizontal</option>
-      </select><br>
-      <!-- <label for="battleship-location">Battleship: </label>
-      <input name="battleship-location" id="battleship-location" value="(four squares)"></input><br>
-      <label for="cruiser-location">Cruiser: </label>
-      <input name="cruiser-location" id="cruiser-location" value="(three squares)"></input><br>
-      <label for="submarine-location">Submarine: </label>
-      <input name="submarine-location" id="submarine-location" value="(three squares)"></input><br>
-      <label for="destroyer-location">Destroyer: </label>
-      <input name="destroyer-location" id="destroyer-location" value="(two squares)"></input><br> -->
-      <button type="submit" id="tweet-btn">Finalize Placement</button>
+      <h2>Place Your Ships</h2>
+      <p>Please enter the coordinates of the squares your ships will occupy. Enter the square names separated by commas,
+        and enter exactly the amount required by each ship. The requried number of squares is indicated by the number in
+        parentheses after the ship's name.</p>
+      <label for="carrier-squares">Carrier (5): </label>
+      <input name="carrier-squares" id="carrier-squares"></input><br>
+      <label for="battleship-squares">Battleship (4): </label>
+      <input name="battleship-squares" id="battleship-squares"></input><br>
+      <label for="cruiser-squares">Cruiser (3): </label>
+      <input name="cruiser-squares" id="cruiser-squares"></input><br>
+      <label for="submarine-squares">Submarine (3): </label>
+      <input name="submarine-squares" id="submarine-squares"></input><br>
+      <label for="destroyer-squares">Destroyer (2): </label>
+      <input name="destroyer-squares" id="destroyer-squares"></input><br>
+      <button type="submit" id="placement-btn">Finalize Placement</button>
+    </form>
+    <div class="emsg" id="incorrect-size-msg">
+      <span>One of your ships is not the correct size! Review your input carefully and place your ships again.</span>
+    </div>
+    <div class="emsg" id="square-overlap-msg">
+      <span>You cannot place two ships in the same square! Review your input carefully and place your ships
+        again.</span>
+    </div>
+  </section>
+  <section class="attack-input" id="attack-input">
+    <form method="POST" action="/guess/" id="guess-form">
+      <h2>Attack Your Opponent!</h2>
+      <p>Please enter the coordinates of the square on your opponent's board that you would like to attack. </p>
+      <label for="attack-guess">Your guess coordinates: </label>
+      <button type="submit" id="attack-guess">Attack!</button>
     </form>
   </section>
   <main>

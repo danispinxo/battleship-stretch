@@ -17,3 +17,12 @@ h2 {
   font-family: 'Jost', sans-serif;
 }
 
+.emsg {
+  display: none;
+  margin: 1rem;
+  padding: 1rem;
+  background-color: #c8abcc;
+  border: 1px;
+  border-style: dotted;
+  border-color: #4d1155;
+}
