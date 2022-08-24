@@ -72,6 +72,14 @@ const placeShips = (object) => {
   $('#attack-input').toggle();
 };
 
+const placeOpponentShips = () => {
+
+  let letterArray = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
+  let randomRow = Math.floor(Math.random() * letterArray.length);
+
+  
+};
+
 $(document).ready(function() {
   $(function() {
     const $form = $("#placement-form");
