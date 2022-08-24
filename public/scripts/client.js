@@ -70,14 +70,72 @@ const placeShips = (object) => {
   $("#square-overlap-msg").hide();
   $('#placement-form').hide();
   $('#attack-input').toggle();
+  placeOpponentShips();
 };
 
 const placeOpponentShips = () => {
 
-  let letterArray = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
-  let randomRow = Math.floor(Math.random() * letterArray.length);
+  const opponentBoards = [
+    {
+      carrierSquares: ['C6', 'D6', 'E6', 'F6', 'G6'],
+      battleshipSquares: ['G1', 'G2', 'G3', 'G4'],
+      cruiserSquares: ['B3', 'B4', 'B5'],
+      submarineSquares: ['I4', 'I5', 'I6'],
+      destroyerSquares:['I10', 'J10']
+    },
+    {
+      carrierSquares: ['A6', 'B6', 'C6', 'D6', 'E6'],
+      battleshipSquares: ['G1', 'G2', 'G3', 'G4'],
+      cruiserSquares: ['B2', 'B3', 'B4'],
+      submarineSquares: ['I4', 'I5', 'I6'],
+      destroyerSquares:['I9', 'I10']
+    },
+    {
+      carrierSquares: ['A1', 'A2', 'A3', 'A4', 'A5'],
+      battleshipSquares: ['G1', 'G2', 'G3', 'G4'],
+      cruiserSquares: ['B2', 'B3', 'B4'],
+      submarineSquares: ['F8', 'G8', 'H8'],
+      destroyerSquares:['D5', 'E5']
+    },
+    {
+      carrierSquares: ['J1', 'J2', 'J3', 'J4', 'J5'],
+      battleshipSquares: ['B1', 'B2', 'B3', 'B4'],
+      cruiserSquares: ['F2', 'F3', 'F4'],
+      submarineSquares: ['E8', 'F8', 'G8'],
+      destroyerSquares:['A5', 'B5']
+    },
+  ];
 
-  
+  const randomBoardSelection = Math.floor(Math.random() * opponentBoards.length);
+
+  const opponentShipSquares = opponentBoards[randomBoardSelection];
+  const carrierSquares = opponentShipSquares.carrierSquares;
+  const battleshipSquares = opponentShipSquares.battleshipSquares;
+  const cruiserSquares = opponentShipSquares.cruiserSquares;
+  const submarineSquares = opponentShipSquares.submarineSquares;
+  const destroyerSquares = opponentShipSquares.destroyerSquares;
+
+  for (let square of carrierSquares) {
+    square = square.trim();
+    $(`#o${square}`).addClass('opponent-occupied');
+  }
+  for (let square of battleshipSquares) {
+    square = square.trim();
+    $(`#o${square}`).addClass('opponent-occupied');
+  }
+  for (let square of cruiserSquares) {
+    square = square.trim();
+    $(`#o${square}`).addClass('opponent-occupied');
+  }
+  for (let square of submarineSquares) {
+    square = square.trim();
+    $(`#o${square}`).addClass('opponent-occupied');
+  }
+  for (let square of destroyerSquares) {
+    square = square.trim();
+    $(`#o${square}`).addClass('opponent-occupied');
+  }
+
 };
 
 $(document).ready(function() {

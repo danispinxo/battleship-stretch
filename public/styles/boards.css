@@ -67,3 +67,7 @@ main {
   border-style: solid;
   border-color:  #4fc3c9;
 }
+
+.opponent-occupied {
+  color: #f7d672;
+}

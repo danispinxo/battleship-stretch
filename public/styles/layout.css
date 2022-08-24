@@ -34,3 +34,11 @@ h2 {
   border-style: dotted;
   border-color: #4d1155;
 }
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #4d1155;
+  font-family: 'Jost', sans-serif;
+}
