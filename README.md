@@ -28,7 +28,7 @@ You can customize where you put your ships, either vertical or horizontal. You w
 You are prompted to attack your opponent. You either "Hit" or "Miss" in the console, and the square turns to an X for a hit or a O for a miss. Right after your turn, the computer attacks you with similar changes to your own squares. 
 
 ### HORRIBLY ONE-SIDED!
-You have a brain. The computer is currently a very basic algoritm that simply chooses its guess from the remaining un-guessed squares, making it a poor player. Some might view this as a bug or a problem with the app. I'd like us to think about this as a delightful feature that almost certainly guarantees the player the win. Hurray! Take THAT computers. 
+You have a brain. The computer is currently a very basic algorithm that simply chooses its guess from the remaining un-guessed squares, making it a poor player. Some might view this as a bug or a problem with the app. I'd like us to think about this as a delightful feature that almost certainly guarantees the player the win. Hurray! Take THAT computers. 
 
 ## Known Bugs
 
