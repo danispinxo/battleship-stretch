@@ -4,7 +4,9 @@ This Battleship-style game is a full stack web application built with Express th
 
 ## Screenshots
 
-!["The Login Page"](https://github.com/danispinxo/tinyapp/blob/master/images/SS-login.png)
+!["The Ship Placement Module"](https://github.com/danispinxo/battleship-stretch/blob/master/public/images/ship-placement.png)
+!["Player Boards with the Ships Placed"](https://github.com/danispinxo/battleship-stretch/blob/master/public/images/boards.png)
+!["Attacks with Console Logs"](https://github.com/danispinxo/battleship-stretch/blob/master/public/images/attacks-with-console.png)
 
 ## Dependencies
 
@@ -31,12 +33,27 @@ You have a brain. The computer is currently a very basic algoritm that simply ch
 ## Known Bugs
 
 ### Hit/Miss Messages
+At this time, the only "Hit" and "Miss" messages are in the console. As I continue to work on this project, I will move these messages into the browser as both alerts and part of a game log. 
 
 ### No Actual Sinking of Ships
+At this time, the app does not differentiate occupied squares. So, there's no way of knowing which ships have been sunk. As I continue to work on this project, I will make this differentiation possible on the back-end, if perhaps not on the front-end until official sinking. 
 
 ### No Actual Winning the Game
+At this time, the game just kind of ends. It will need a "Win" or "Lose" notification and the ability to reset the game in future development. 
 
 ### No Log of Turns Except the Console
+While the console does indeed log the player's turns and the opponent turns (as well as the remaining player squares), there will eventually be a log of the turns in the browser. 
+
+### Random Computer = Bad Player
+Once again, this computer opponent is completely random and needs to be developed in order to make more intelligent decisions with its guesses. 
+
+## Future Development
+
+### Design & SASS
+I would like to spend a bit more time on design and implement SASS here. But, I am quite happy with the overall girly look and feel of the game so far. 
+
+### Leaderboard Function
+I would like to develop a leaderboard function where after a game, the player would be prompted to input their name. This would involve calculating a score based on the number of turns taken to beat the computer. 
 
 ## Thank Yous
 
