@@ -69,7 +69,9 @@ main {
 }
 
 .opponent-occupied {
-  color: #f7d672;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hit-opponent {
